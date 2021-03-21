@@ -79,20 +79,18 @@ const App: () => Node = () => {
 
   return (
     <PaperProvider>
-   
+    <SafeAreaView style={backgroundStyle}>
 
-   <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <Container>
-    
-        <Header style={{flexDirection:"column"}}>
-        <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+        <Header>
       <Top/>
-      
-      </Header>
       <Filter/>
+      </Header>
         <Content>
-      
-
+      <ScrollView
+        contentInsetAdjustmentBehavior="never"
+        >
         
         <View>
         <ListItems/>
@@ -102,17 +100,42 @@ const App: () => Node = () => {
         <ListItems/>
         <ListItems/>
         </View>
+        {/*
+        <View
+          style={{
+            backgroundColor: isDarkMode ? Colors.black : Colors.white,
+          }}>
+          <Section title="Step One">
+            Edit <Text style={styles.highlight}>App.js</Text> to change this
+            screen and then come back to see your edits.
+          </Section>
+          <Section title="See Your Changes">
+            Now!
 
+            <ReloadInstructions />
+          </Section>
+          <Section title="Debug">
+            <DebugInstructions />
+          </Section>
+          <Section title="Learn More">
+            Read the docs to discover what to do next:
+          </Section>
+          <LearnMoreLinks />
+        </View>
+        */}
 
-     
+      </ScrollView>
       </Content>
       <Footer>
-      <Bottom/>
-
+      <View style={{position: 'absolute', left: 0, right: 0, bottom: 10}}>
+                <TouchableOpacity onPress={() => {}}>
+                <Bottom/>
+                </TouchableOpacity>
+                </View>  
                 </Footer>
       
                 </Container>
-    
+    </SafeAreaView>
    
     </PaperProvider>
   );
