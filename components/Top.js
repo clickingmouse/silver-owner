@@ -10,10 +10,11 @@ const Top = ()=>{
     const _handleMore = () => console.log('Shown more');
     return(
         <Appbar.Header>
-        <Appbar.BackAction onPress={_goBack} />
+        <Appbar.Action icon="menu" onPress={_handleMore} />
+        {/*<Appbar.BackAction onPress={_goBack} />*/}
         <Appbar.Content title="Title" subtitle="Subtitle" />
         <Appbar.Action icon="magnify" onPress={_handleSearch} />
-        <Appbar.Action icon="dots-vertical" onPress={_handleMore} />
+        
       </Appbar.Header>
     )
 }
