@@ -2,6 +2,8 @@ import { DataTable } from 'react-native-paper';
 import React from 'react';
 import type {Node} from 'react';
 import {StyleSheet} from 'react-native'
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
+import Icon from 'react-native-vector-icons/MaterialIcons'
 const Filter = ()=>{
     const _goBack = () => console.log('Went back');
 
@@ -16,8 +18,7 @@ const Filter = ()=>{
           >
             Descending
           </DataTable.Title>
-          <DataTable.Title numeric>Calories</DataTable.Title>
-          <DataTable.Title numeric>Fat (g)</DataTable.Title>
+          <DataTable.Title numeric>18 Properties available</DataTable.Title>
         </DataTable.Header>
       </DataTable>
     )

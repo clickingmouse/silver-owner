@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Avatar, Button, Card, Title, Paragraph,IconButton, Colors} from 'react-native-paper';
+import { Avatar, Button, Card, Title, Paragraph,IconButton, Colors } from 'react-native-paper';
 import {
 
   StyleSheet,
@@ -24,7 +24,10 @@ const ListItem = () => (
       <View style = {{ alignItems:'flex-end'}}>
       {/*<Title >Card title</Title>*/}
       <Text>BankOwned -  Vacant</Text>
-      <Text style={styles.cashOnly}> CASH ONLY</Text>
+      <View style={{flexDirection:'row', alignContent:'space-between'}}>
+      <Text style={styles.financeable}>FINANCEABLE</Text><Text> </Text>
+      <Text style={styles.cashOnly}>CASH ONLY</Text>
+      </View>
       <Paragraph >580 SQFT 2B 1Ba</Paragraph>
       </View>
     </Card.Content>
@@ -33,15 +36,19 @@ const ListItem = () => (
     <Card.Cover   source={require('./images/test.jpeg')} />
 
     {/*<Card.Cover source={{ uri: 'https://picsum.photos/700' }} />*/}
-    <Card.Actions>
-
+    <Card.Actions style={styles.cardMenu}>
+{/*
     <IconButton
+    title="save"
+    text="save"
+    left="save"
     icon="heart-outline"
     color={Colors.red500}
     size={20}
     onPress={() => console.log('Pressed')}
   />
-      <Button>Save</Button>
+*/}
+      <Button icon="heart-outline" mode="text" contentStyle={{flexDirection:'column', alignItems:'center',textAlign:'center', justifyContent:'center'}}onPress={() => console.log('Pressed')}>save</Button>
       <Text>Count Down</Text>
       <Button>Register</Button>
     </Card.Actions>
@@ -51,6 +58,8 @@ const ListItem = () => (
 
 const styles = StyleSheet.create({
   cashOnly:{backgroundColor:'orange',},
+  financeable:{backgroundColor:'red'},
+  cardMenu:{justifyContent:'space-between'}
 })
 
 export default ListItem;

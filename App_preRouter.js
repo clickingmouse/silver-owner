@@ -1,4 +1,3 @@
-import 'react-native-gesture-handler';
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
@@ -34,18 +33,8 @@ import {
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Provider as PaperProvider } from 'react-native-paper';
 
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-
-
 import { Appbar } from 'react-native-paper';
 import { DataTable } from 'react-native-paper';
-
-import HomeScreen from './components/HomeScreen'
-
-import ProfileScreen from './components/ProfileScreen'
-
-
 import Top from './components/Top';
 import Filter from './components/Filter';
 import Bottom from './components/Bottom';
@@ -76,8 +65,6 @@ const Section = ({children, title}): Node => {
   );
 };
 
-const Stack = createStackNavigator();
-
 const App: () => Node = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
@@ -91,20 +78,41 @@ const App: () => Node = () => {
   const _handleMore = () => console.log('Shown more');
 
   return (
-
-    
     <PaperProvider>
-       
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{ title: 'Home Screen' }}
-        />
-        <Stack.Screen name="Profile" component={ProfileScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+   
+
+   <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+      <Container>
+    
+        <Header style={{flexDirection:"column"}}>
+        <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+      <Top/>
+      
+      </Header>
+      <Filter/>
+        <Content>
+      
+
+        
+        <View>
+        <ListItems/>
+        <ListItems/>
+        
+        <ListItems/>
+        <ListItems/>
+        <ListItems/>
+        </View>
+
+
+     
+      </Content>
+      <Footer>
+      <Bottom/>
+
+                </Footer>
+      
+                </Container>
+    
    
     </PaperProvider>
   );
